@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>হাসপাতাল সময়সূচি</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="header">
+
+    <div class="header-badge">
+      ⚕️ Schedule Information Service
+    </div>
+
+    <h1>🏥 হাসপাতাল সময়সূচি</h1>
+
+    <p>
+      সঠিক হাসপাতালে সঠিক বিভাগ ও দিনের সময়সূচি সহজে খুঁজুন
+    </p>
+
+  </header>
+
+
+  <!-- =========================
+       ANIMATED HOSPITAL SCENE
+  ========================== -->
+  <section class="hospital-scene">
+
+    <!-- Sun -->
+    <div class="sun"></div>
+
+
+    <!-- Clouds -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+
+    <!-- Flying Birds -->
+    <div class="birds birds-1">🕊️ 🕊️</div>
+    <div class="birds birds-2">🕊️ 🕊️ 🕊️</div>
+
+
+    <!-- =========================
+         LEFT TREES
+    ========================== -->
+    <div class="tree tree-1">
+      <div class="tree-top"></div>
+      <div class="tree-trunk"></div>
+    </div>
+
+    <div class="tree tree-2">
+      <div class="tree-top"></div>
+      <div class="tree-trunk"></div>
+    </div>
+
+
+    <!-- =========================
+         RIGHT TREES
+    ========================== -->
+    <div class="tree tree-3">
+      <div class="tree-top"></div>
+      <div class="tree-trunk"></div>
+    </div>
+
+    <div class="tree tree-4">
+      <div class="tree-top"></div>
+      <div class="tree-trunk"></div>
+    </div>
+
+
+    <!-- =========================
+         HOSPITAL
+    ========================== -->
+    <div class="hospital">
+
+      <div class="hospital-sign">
+        <span>⚕️</span>
+        HOSPITAL
+      </div>
+
+
+      <!-- Windows -->
+      <div class="hospital-windows">
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+
+      <!-- Animated Door -->
+      <div
+        id="hospitalDoor"
+        class="hospital-door"
+        aria-label="Hospital Door"
+      >
+
+        <div class="door door-left"></div>
+        <div class="door door-right"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         WALKWAY
+    ========================== -->
+    <div class="walkway"></div>
+
+
+    <!-- =========================
+         WALKING PEOPLE
+    ========================== -->
+
+    <!-- Person 1: Walks through -->
+    <div class="person person-1">
+      🚶‍♂️
+    </div>
+
+
+    <!-- Person 2: Enters hospital -->
+    <div class="person person-2">
+      🚶‍♀️
+    </div>
+
+
+    <!-- Person 3: Walks through -->
+    <div class="person person-3">
+      🚶
+    </div>
+
+
+    <!-- Person 4: Enters hospital -->
+    <div class="person person-4">
+      🚶‍♂️
+    </div>
+
+
+    <!-- =========================
+         ROAD
+    ========================== -->
+    <div class="road">
+
+      <div class="road-line"></div>
+
+
+      <!-- Ambulance -->
+      <div class="vehicle ambulance">
+        🚑
+      </div>
+
+
+      <!-- Bus 1 -->
+      <div class="vehicle bus bus-1">
+        🚌
+      </div>
+
+
+      <!-- Bus 2 -->
+      <div class="vehicle bus bus-2">
+        🚌
+      </div>
+
+
+      <!-- Car 1 -->
+      <div class="vehicle car car-1">
+        🚗
+      </div>
+
+
+      <!-- Car 2 -->
+      <div class="vehicle car car-2">
+        🚙
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+  <main class="container">
+
+
+    <!-- =========================
+         SEARCH SECTION
+    ========================== -->
+    <section class="search-section">
+
+      <div class="section-title">
+
+        <span class="title-icon">
+          🩺
+        </span>
+
+        <div>
+
+          <h2>
+            ডাক্তার দেখানোর সময়সূচি খুঁজুন
+          </h2>
+
+          <p>
+            ধাপে ধাপে তথ্য নির্বাচন করুন
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Hospital Selection -->
+      <div class="form-step">
+
+        <label for="hospitalSelect">
+          🏥 হাসপাতাল নির্বাচন করুন
+        </label>
+
+        <select id="hospitalSelect">
+
+          <option value="">
+            হাসপাতাল নির্বাচন করুন
+          </option>
+
+          <option value="tejgaon">
+            Medical Inspection Room, Tejgaon
+          </option>
+
+          <option value="kurmitola">
+            Medical Inspection Room, Kurmitola
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- Department Selection -->
+      <div class="form-step">
+
+        <label for="departmentSelect">
+          🩺 বিভাগ নির্বাচন করুন
+        </label>
+
+        <select
+          id="departmentSelect"
+          disabled
+        >
+
+          <option value="">
+            প্রথমে হাসপাতাল নির্বাচন করুন
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- Department Preview -->
+      <div
+        id="selectedDepartmentPreview"
+        class="department-preview"
+      >
+        🩺 বিভাগ নির্বাচন করলে প্রতীক এখানে দেখা যাবে
+      </div>
+
+
+      <!-- Day Selection -->
+      <div class="form-step">
+
+        <label for="daySelect">
+          📅 দিন নির্বাচন করুন
+        </label>
+
+        <select
+          id="daySelect"
+          disabled
+        >
+
+          <option value="">
+            প্রথমে বিভাগ নির্বাচন করুন
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- Search Button -->
+      <button
+        id="searchButton"
+        type="button"
+        disabled
+      >
+        🔎 সময়সূচি দেখুন
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         RESULT SECTION
+    ========================== -->
+    <section
+      id="resultSection"
+      class="result-section"
+    >
+
+      <!-- Result Header -->
+      <div class="result-heading">
+
+        <div>
+
+          <h2>
+            📋 সময়সূচির ফলাফল
+          </h2>
+
+          <p>
+            আপনার নির্বাচিত তথ্য অনুযায়ী ফলাফল
+          </p>
+
+        </div>
+
+
+        <div
+          id="resultStatus"
+          class="status neutral"
+        >
+          অপেক্ষমান
+        </div>
+
+      </div>
+
+
+      <!-- Dynamic Result -->
+      <div
+        id="resultContent"
+        class="result-placeholder"
+      >
+
+        <div class="placeholder-icon">
+          🏥
+        </div>
+
+        <p>
+          হাসপাতাল, বিভাগ এবং দিন নির্বাচন করে
+          <strong>সময়সূচি দেখুন</strong>
+          বাটনে চাপ দিন।
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+    <section class="contact-section">
+
+      <div class="contact-icon">
+        📞
+      </div>
+
+      <h2>
+        যোগাযোগ
+      </h2>
+
+
+      <!-- Selected Hospital Name -->
+      <p
+        id="contactHospitalName"
+        class="contact-hospital-name"
+      >
+        হাসপাতাল নির্বাচন করুন
+      </p>
+
+
+      <!-- Call Button -->
+      <a
+        id="callButton"
+        class="call-button disabled"
+        href="#"
+        aria-disabled="true"
+      >
+        📞 কল করুন
+      </a>
+
+    </section>
+
+
+    <!-- =========================
+         IMPORTANT NOTICE
+    ========================== -->
+    <section class="notice-section">
+
+      <div class="notice-icon">
+        ℹ️
+      </div>
+
+      <div>
+
+        <h3>
+          গুরুত্বপূর্ণ তথ্য
+        </h3>
+
+        <p>
+          এই ওয়েবসাইটে প্রদর্শিত সময়সূচি হাসপাতাল কর্তৃপক্ষের
+          প্রদত্ত তথ্যের ভিত্তিতে প্রকাশিত। সময়সূচি পরিবর্তন হতে পারে।
+          প্রয়োজন হলে হাসপাতাল কর্তৃপক্ষের সঙ্গে যোগাযোগ করে নিশ্চিত হওয়ার
+          পরামর্শ দেওয়া হচ্ছে।
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+
+    <p>
+      ⚕️ OPD Schedule Information Service
+    </p>
+
+    <p>
+      তথ্য পরিবর্তন হতে পারে। সর্বশেষ তথ্যের জন্য হাসপাতাল কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।
+    </p>
+
+    <p class="developer">
+      Developed by <strong>MD Maruf Hosen.</strong>
+    </p>
+
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
