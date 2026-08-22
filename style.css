@@ -1,0 +1,884 @@
+/* ===================================
+   ROOT
+=================================== */
+
+:root {
+  --primary: #1565c0;
+  --primary-dark: #0d47a1;
+  --background: #f4f7fb;
+  --card: #ffffff;
+  --text: #1d2939;
+  --muted: #667085;
+  --border: #d0d5dd;
+  --success: #12b76a;
+  --danger: #d92d20;
+  --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+}
+
+
+/* ===================================
+   RESET
+=================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+/* ===================================
+   HEADER
+=================================== */
+
+.header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+.header-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.logo-placeholder {
+  font-size: 28px;
+}
+
+
+.brand h1 {
+  margin: 0;
+  font-size: 17px;
+}
+
+
+.menu-btn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+.menu-btn span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  margin: 5px;
+  border-radius: 5px;
+}
+
+
+/* ===================================
+   SIDE MENU
+=================================== */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  z-index: 150;
+}
+
+
+.menu-overlay.show {
+  display: block;
+}
+
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background: var(--card);
+  z-index: 200;
+  padding: 20px;
+  transition: right 0.3s;
+  box-shadow: var(--shadow);
+}
+
+
+.side-menu.open {
+  right: 0;
+}
+
+
+.menu-header,
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.close-menu {
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+
+.menu-links a {
+  padding: 14px 0;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.menu-footer {
+  position: absolute;
+  bottom: 20px;
+}
+
+
+/* ===================================
+   MAIN
+=================================== */
+
+.main-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px 15px 50px;
+}
+
+
+.hero {
+  text-align: center;
+  margin: 25px 0;
+}
+
+
+.welcome-text,
+.section-label {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+
+.hero h2 {
+  margin: 8px 0;
+}
+
+
+.hero-description {
+  color: var(--muted);
+}
+
+
+/* ===================================
+   SEARCH CARD
+=================================== */
+
+.search-card,
+.info-section,
+.feedback-section,
+.admin-section {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+
+.form-group {
+  margin-top: 15px;
+}
+
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text);
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+
+.search-btn,
+.feedback-submit-btn,
+#adminLoginBtn,
+#adminLogoutBtn,
+#clearAllFeedbackBtn {
+  width: 100%;
+  margin-top: 18px;
+  border: 0;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+#adminLogoutBtn {
+  width: auto;
+  margin: 0;
+}
+
+
+#clearAllFeedbackBtn {
+  background: var(--danger);
+}
+
+
+button:disabled {
+  opacity: 0.6;
+}
+
+
+/* ===================================
+   QUICK SEARCH
+=================================== */
+
+.quick-search-wrapper {
+  position: relative;
+}
+
+
+.search-input-box {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.search-icon {
+  padding: 13px;
+}
+
+
+#quickSearch {
+  border: 0;
+  border-radius: 0;
+}
+
+
+.quick-search-btn {
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background: var(--primary);
+}
+
+
+.suggestions {
+  display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+
+.suggestions.show {
+  display: block;
+}
+
+
+.suggestion-item {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: var(--card);
+  color: var(--text);
+  padding: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+.suggestion-item:hover {
+  background: var(--background);
+}
+
+
+.suggestion-empty {
+  padding: 13px;
+  color: var(--muted);
+}
+
+
+/* ===================================
+   MESSAGE
+=================================== */
+
+.message {
+  min-height: 20px;
+  text-align: center;
+  color: var(--danger);
+  font-weight: bold;
+}
+
+
+/* ===================================
+   RESULT
+=================================== */
+
+.result-card {
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 20px;
+  background: var(--background);
+  border: 1px solid var(--border);
+}
+
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.result-icon {
+  font-size: 35px;
+}
+
+
+.result-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+.result-header h3 {
+  margin: 5px 0 0;
+}
+
+
+.bus-time-box,
+.countdown-box {
+  text-align: center;
+  margin-top: 18px;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 12px;
+}
+
+
+.bus-time-box p,
+.countdown-box p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+
+.bus-time-box h2 {
+  margin-bottom: 0;
+  color: var(--primary);
+}
+
+
+.timer {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+.all-bus-section {
+  margin-top: 20px;
+}
+
+
+.all-bus-header h3 {
+  margin-bottom: 5px;
+}
+
+
+.all-bus-header p {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+.bus-time-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  margin-top: 8px;
+  padding: 13px;
+  border-radius: 10px;
+}
+
+
+.bus-number {
+  font-weight: bold;
+}
+
+
+.bus-note {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+
+.bus-time {
+  color: var(--primary);
+}
+
+
+.empty-bus-times {
+  padding: 15px;
+  text-align: center;
+  background: var(--card);
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+
+/* ===================================
+   HISTORY
+=================================== */
+
+.history-section {
+  margin-top: 25px;
+}
+
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.clear-history-btn {
+  border: 0;
+  background: transparent;
+  color: var(--danger);
+  cursor: pointer;
+}
+
+
+.history-item {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--background);
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+.history-item strong,
+.history-item small {
+  display: block;
+}
+
+
+.history-item small {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+
+.empty-history {
+  color: var(--muted);
+}
+
+
+/* ===================================
+   BUS VISUAL
+=================================== */
+
+.bus-visual {
+  text-align: center;
+  padding: 25px;
+}
+
+
+.bus-status {
+  color: var(--success);
+  font-size: 13px;
+}
+
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+}
+
+
+.bus-emoji {
+  font-size: 70px;
+  margin: 15px;
+}
+
+
+/* ===================================
+   INFO
+=================================== */
+
+.info-section details {
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--background);
+  border-radius: 10px;
+}
+
+
+.info-section summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#themeToggle {
+  border: 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* ===================================
+   FEEDBACK
+=================================== */
+
+.feedback-description {
+  color: var(--muted);
+}
+
+
+.feedback-status {
+  text-align: center;
+}
+
+
+/* ===================================
+   ADMIN
+=================================== */
+
+.admin-section {
+  margin-top: 20px;
+}
+
+
+.admin-actions {
+  margin: 15px 0;
+}
+
+
+.admin-feedback-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  background: var(--background);
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+
+.admin-feedback-content h4,
+.admin-feedback-content p {
+  margin-top: 0;
+}
+
+
+.admin-feedback-content p {
+  white-space: pre-wrap;
+}
+
+
+.admin-feedback-content small {
+  color: var(--muted);
+}
+
+
+.delete-feedback-btn {
+  height: fit-content;
+  border: 0;
+  background: var(--danger);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.admin-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+
+/* ===================================
+   FOOTER
+=================================== */
+
+.footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+
+/* ===================================
+   ANIMATED ROAD
+=================================== */
+
+.road {
+  position: relative;
+  height: 45px;
+  overflow: hidden;
+  background: #333;
+}
+
+
+.road-lines {
+  position: absolute;
+  width: 100%;
+  top: 21px;
+  border-top: 3px dashed white;
+}
+
+
+/* ===================================
+   MOVING BUSES
+=================================== */
+
+.moving-bus {
+  position: absolute;
+  top: 7px;
+  font-size: 25px;
+  white-space: nowrap;
+
+  animation-name: busMove;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  will-change: transform;
+}
+
+
+/* Bus 1 */
+.bus-one {
+  left: -60px;
+  animation-duration: 9s;
+}
+
+
+/* Bus 2 */
+.bus-two {
+  left: -60px;
+  animation-duration: 12s;
+  animation-delay: -4s;
+}
+
+
+/* Bus 3 */
+.bus-three {
+  left: -60px;
+  animation-duration: 15s;
+  animation-delay: -8s;
+}
+
+
+/* ===================================
+   BUS MOVEMENT
+=================================== */
+
+@keyframes busMove {
+
+  0% {
+    transform: translateX(-80px);
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 80px));
+  }
+
+}
+
+
+/* ===================================
+   FOOTER CONTENT
+=================================== */
+
+.footer-content {
+  padding: 25px 15px;
+}
+
+
+.footer-content h3 {
+  margin-top: 0;
+}
+
+
+.developer-name {
+  font-size: 14px;
+}
+
+
+.footer-content small {
+  color: var(--muted);
+}
+
+
+/* ===================================
+   DARK MODE FOOTER ROAD
+=================================== */
+
+body.dark-mode .road {
+  background: #080c12;
+}
+
+
+/* ===================================
+   DARK MODE
+=================================== */
+
+body.dark-mode {
+  --background: #101828;
+  --card: #1d2939;
+  --text: #f2f4f7;
+  --muted: #98a2b3;
+  --border: #475467;
+}
+
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #101828;
+}
+
+
+body.dark-mode .suggestion-item,
+body.dark-mode .bus-time-item,
+body.dark-mode .history-item {
+  background: #101828;
+}
+
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width: 600px) {
+
+  .main-content {
+    padding: 15px 10px 35px;
+  }
+
+  .brand h1 {
+    font-size: 14px;
+  }
+
+  .admin-feedback-item {
+    flex-direction: column;
+  }
+
+  .delete-feedback-btn {
+    width: 100%;
+  }
+
+  .moving-bus {
+    font-size: 23px;
+  }
+
+  .bus-one {
+    animation-duration: 8s;
+  }
+
+  .bus-two {
+    animation-duration: 11s;
+  }
+
+  .bus-three {
+    animation-duration: 14s;
+  }
+
+}
